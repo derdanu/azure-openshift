@@ -26,7 +26,7 @@ New-AzureRmResourceGroupDeployment -Name <DeploymentName> -ResourceGroupName <Re
 
 ## Install Openshift Origin with Ansible
 
-You must use SSH Agentforwarding. The Installation is based on [Openshift Ansible](https://github.com/openshift/openshift-ansible). The lastest repository has been checked out on the master into the directory */opt/openshift-ansible/* and a minimal configuration file was created at * /etc/ansible/hosts* for (Openshift Origin)[https://github.com/openshift/origin].
+You must use SSH Agentforwarding. The Installation is based on [Openshift Ansible](https://github.com/openshift/openshift-ansible). The lastest repository has been checked out on the master into the directory */opt/openshift-ansible/* and a minimal configuration file was created at */etc/ansible/hosts* for (Openshift Origin)[https://github.com/openshift/origin].
 
 
 ### Bash or Cygwin Terminal
