@@ -62,9 +62,9 @@
     "infranodeSubnetRef": "[concat(variables('vnetId'), '/subnets/', variables('infranodesubnetName'))]",
     "nodeSubnetRef": "[concat(variables('vnetId'), '/subnets/', variables('nodesubnetName'))]",
     "masterSubnetRef": "[concat(variables('vnetId'), '/subnets/', variables('mastersubnetName'))]",
-    "infranodeVMSize": "Standard_D2_v2",
-    "nodeVMSize": "Standard_D2_v2",
-    "masterVMSize": "Standard_D3_v2"
+    "infranodeVMSize": "Standard_D2",
+    "nodeVMSize": "Standard_D2",
+    "masterVMSize": "Standard_D3"
 
   },
   "resources": [
