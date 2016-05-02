@@ -38,6 +38,7 @@ deployment_type=origin
 openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider', 'filename': '/etc/origin/master/htpasswd'}]
 
 openshift_master_default_subdomain=${ROUTEREXTIP}.xip.io 
+openshift_use_dnsmasq=False
 
 [masters]
 master openshift_public_hostname=${HOSTNAME}
