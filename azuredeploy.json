@@ -40,7 +40,7 @@
 
   },
   "variables": {
-    "baseTemplateUrl": "https://raw.githubusercontent.com/derdanu/azure-openshift/master/",
+    "baseTemplateUrl": "https://raw.githubusercontent.com/derdanu/azure-openshift/rhel/",
     "baseVMachineTemplateUriInfranode": "[concat(variables('baseTemplateUrl'), 'infranode.json')]",
     "baseVMachineTemplateUriNode": "[concat(variables('baseTemplateUrl'), 'node.json')]",
     "baseVMachineTemplateUriMaster": "[concat(variables('baseTemplateUrl'), 'master.json')]",
