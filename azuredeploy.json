@@ -78,14 +78,16 @@
     "nodeVMSize": "Standard_D2_v2",
     "masterVMSize": "Standard_D3_v2",
     "centos": {
-      "imagePublisher": "Openlogic",
-      "imageOffer": "CentOS",
-      "centOSVersion": "7.2"
+      "publisher": "Openlogic",
+      "offer": "CentOS",
+      "sku": "7.2",
+      "version": "latest"
     },
     "rhel": {
-      "imagePublisher": "RedHat",
-      "imageOffer": "RHEL",
-      "centOSVersion": "7.2"
+      "publisher": "RedHat",
+      "offer": "RHEL",
+      "sku": "7.2",
+      "version": "latest"
     }  
   },
   "resources": [
