@@ -16,6 +16,9 @@
     },
     "numberOfNodes": {
       "value": 3
+    },
+    "image": {
+      "value": "centos"
     }
   }
 }
