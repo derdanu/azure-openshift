@@ -37,15 +37,17 @@
     },
     "routerExtIP": {
       "type": "string"
+    },
+    "imageReference": {
+      "type": "object",
+      "metadata": {
+        "description": "imageReference object that should be used to create the virtual machine"
+      }
     }
   },
   "variables": {
     "apiVersion": "2015-06-15",
-    "imagePublisher": "Openlogic",
-    "imageOffer": "CentOS",
-    "centOSVersion": "7.2",
     "sshKeyPath": "[concat('/home/',parameters('adminUsername'),'/.ssh/authorized_keys')]"
-
   },
   "resources": [
     {
@@ -111,12 +113,7 @@
           }
         },
         "storageProfile": {
-          "imageReference": {
-            "publisher": "[variables('imagePublisher')]",
-            "offer": "[variables('imageOffer')]",
-            "sku": "[variables('centOSVersion')]",
-            "version": "latest"
-          },
+          "imageReference": "[parameters('imageReference')]",
           "osDisk": {
             "name": "osdisk",
             "vhd": {

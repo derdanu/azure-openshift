@@ -58,6 +58,7 @@ To login on the Master please refer to the [Agent forwarding HowTo](https://gith
 | sshKeyData     | String       | Public SSH Key for the Virtual Machines |
 | masterDnsName  | String       | DNS Prefix for the Openshift Master / Webconsole | 
 | numberOfNodes  | Integer      | Number of Openshift Nodes to create |
+| image | String | Operating System to use. RHEL or CentOs |
 
 ### Output Parameters
 
