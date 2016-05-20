@@ -59,6 +59,9 @@ To login on the Master please refer to the [Agent forwarding HowTo](https://gith
 | masterDnsName  | String       | DNS Prefix for the Openshift Master / Webconsole | 
 | numberOfNodes  | Integer      | Number of Openshift Nodes to create |
 | image | String | Operating System to use. RHEL or CentOs |
+| masterVMSize | String | The size of the Master Virtual Machine |
+| infranodeVMSize| String | The size of the Infranode Virtual Machine |
+| nodeVMSize| String | The size of the each Node Virtual Machine |
 
 ### Output Parameters
 
