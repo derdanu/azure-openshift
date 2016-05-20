@@ -11,10 +11,10 @@ When creating the RedHat Openshift Origin cluster on Azure, you will need a SSH 
 ## Create the cluster
 ### Create the cluster on the Azure Portal
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fderdanu%2Fazure-openshift%2Fmaster%2Fazuredeploy.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fderdanu%2Fazure-openshift%2Frhel%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
-<a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fderdanu%2Fazure-openshift%2Fmaster%2Fazuredeploy.json" target="_blank">
+<a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fderdanu%2Fazure-openshift%2Frhel%2Fazuredeploy.json" target="_blank">
     <img src="http://armviz.io/visualizebutton.png"/>
 </a>
 
@@ -58,6 +58,7 @@ To login on the Master please refer to the [Agent forwarding HowTo](https://gith
 | sshKeyData     | String       | Public SSH Key for the Virtual Machines |
 | masterDnsName  | String       | DNS Prefix for the Openshift Master / Webconsole | 
 | numberOfNodes  | Integer      | Number of Openshift Nodes to create |
+| image | String | Operating System to use. RHEL or CentOs |
 
 ### Output Parameters
 

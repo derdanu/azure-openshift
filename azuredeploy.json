@@ -36,11 +36,23 @@
       "metadata": {
         "description": "Number of Openshift Nodes to deploy (max 30)"
       }
+    },
+    "image": {
+      "type": "string",
+      "allowedValues": [
+        "centos",
+        "rhel"
+      ],
+      "defaultValue": "centos",
+      "metadata": {
+        "description": "OS to use. Centos or Redhat Enterprise Linux"
+      }
     }
+
 
   },
   "variables": {
-    "baseTemplateUrl": "https://raw.githubusercontent.com/derdanu/azure-openshift/master/",
+    "baseTemplateUrl": "https://raw.githubusercontent.com/derdanu/azure-openshift/rhel/",
     "baseVMachineTemplateUriInfranode": "[concat(variables('baseTemplateUrl'), 'infranode.json')]",
     "baseVMachineTemplateUriNode": "[concat(variables('baseTemplateUrl'), 'node.json')]",
     "baseVMachineTemplateUriMaster": "[concat(variables('baseTemplateUrl'), 'master.json')]",
@@ -64,8 +76,19 @@
     "masterSubnetRef": "[concat(variables('vnetId'), '/subnets/', variables('mastersubnetName'))]",
     "infranodeVMSize": "Standard_D2_v2",
     "nodeVMSize": "Standard_D2_v2",
-    "masterVMSize": "Standard_D3_v2"
-
+    "masterVMSize": "Standard_D3_v2",
+    "centos": {
+      "publisher": "Openlogic",
+      "offer": "CentOS",
+      "sku": "7.2",
+      "version": "latest"
+    },
+    "rhel": {
+      "publisher": "RedHat",
+      "offer": "RHEL",
+      "sku": "7.2",
+      "version": "latest"
+    }  
   },
   "resources": [
     {
@@ -179,6 +202,9 @@
           },
           "baseTemplateUrl": {
             "value": "[variables('baseTemplateUrl')]"
+          },
+          "imageReference": {
+            "value": "[variables(parameters('image'))]"
           }
         }
       }
@@ -231,6 +257,9 @@
           },
           "routerExtIP": {
             "value": "[reference('infranode').outputs.pip.value]"
+          },
+          "imageReference": {
+            "value": "[variables(parameters('image'))]"
           }
         }
       }
@@ -270,6 +299,9 @@
           },
           "baseTemplateUrl": {
             "value": "[variables('baseTemplateUrl')]"
+          },
+          "imageReference": {
+            "value": "[variables(parameters('image'))]"
           }
         }
       }
