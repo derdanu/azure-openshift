@@ -50,7 +50,7 @@ infranode openshift_node_labels="{'region': 'infra', 'zone': 'default'}"
 EOF
 
 mkdir -p /etc/origin/master
-htpasswd -cb /etc/origin/master/htpasswd ${USERNAME} ${PASSWORD}
+htpasswd -cb /etc/origin/master/htpasswd.dist ${USERNAME} ${PASSWORD}
 
 
 cat <<EOF > /home/${USERNAME}/openshift-install.sh
@@ -58,6 +58,7 @@ export ANSIBLE_HOST_KEY_CHECKING=False
 ansible-playbook /opt/openshift-ansible/playbooks/byo/config.yml
 oadm registry --selector=region=infra
 oadm router --selector=region=infra
+mv -f /etc/origin/master/htpasswd.dist /etc/origin/master/htpasswd
 EOF
 
 chmod 755 /home/${USERNAME}/openshift-install.sh
