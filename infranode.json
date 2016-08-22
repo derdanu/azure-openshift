@@ -105,7 +105,7 @@
           "osDisk": {
             "name": "osdisk",
             "vhd": {
-              "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageName'))).primaryEndpoints.blob, 'openshiftvmachines/', variables('vmName'), '.vhd')]"                            
+              "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts/', parameters('sa'))).primaryEndpoints.blob, 'openshiftvmachines/', variables('vmName'), '.vhd')]"                            
             },
             "caching": "ReadWrite",
             "createOption": "FromImage"
@@ -118,7 +118,7 @@
               "lun": 0,
               "name": "datadisk1",
               "vhd": {
-                "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageName'))).primaryEndpoints.blob, 'openshiftvmachines/', variables('vmName'), '_datadisk1.vhd')]"
+                "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts/', parameters('sa'))).primaryEndpoints.blob, 'openshiftvmachines/', variables('vmName'), '_datadisk1.vhd')]"
               }
             }
           ]
