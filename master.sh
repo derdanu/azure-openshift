@@ -32,7 +32,7 @@ nodes
 
 [OSEv3:vars]
 ansible_ssh_user=${USERNAME}
-ansible_sudo=true
+ansible_become=yes
 debug_level=2
 deployment_type=origin
 openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider', 'filename': '/etc/origin/master/htpasswd'}]
