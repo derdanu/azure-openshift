@@ -71,7 +71,7 @@
       }
     },
     {
-      "apiVersion": "[variables('apiVersion')]",
+      "apiVersion": "2016-03-30",
       "type": "Microsoft.Compute/virtualMachines",
       "name": "[parameters('vmName')]",
       "location": "[resourceGroup().location]",
@@ -105,7 +105,7 @@
           "osDisk": {
             "name": "osdisk",
             "vhd": {
-              "uri": "[concat('http://', parameters('sa'), '.blob.core.windows.net/openshiftvmachines/', parameters('vmName'), '.vhd')]"
+              "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageName'))).primaryEndpoints.blob, 'openshiftvmachines/', variables('vmName'), '.vhd')]"                            
             },
             "caching": "ReadWrite",
             "createOption": "FromImage"
@@ -118,7 +118,7 @@
               "lun": 0,
               "name": "datadisk1",
               "vhd": {
-                "uri": "[concat('http://', parameters('sa'), '.blob.core.windows.net/openshiftvmachines/', parameters('vmName'), '_datadisk1.vhd')]"
+                "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageName'))).primaryEndpoints.blob, 'openshiftvmachines/', variables('vmName'), '_datadisk1.vhd')]"
               }
             }
           ]

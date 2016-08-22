@@ -257,38 +257,44 @@
     {
       "type": "Microsoft.Storage/storageAccounts",
       "name": "[variables('infranodeStorageName')]",
-      "apiVersion": "[variables('apiVersion')]",
+      "apiVersion": "2016-01-01",
       "location": "[variables('location')]",
       "tags": {
         "displayName": "StorageAccount"
       },
-      "properties": {
-        "accountType": "[variables('vhdStorageType')]"
-      }
+      "properties": {}, 
+      "sku": { 
+        "name": "[variables('vhdStorageType')]" 
+      }, 
+      "kind": "Storage" 
     },
     {
       "type": "Microsoft.Storage/storageAccounts",
       "name": "[variables('nodeStorageName')]",
-      "apiVersion": "[variables('apiVersion')]",
+      "apiVersion": "2016-01-01",
       "location": "[variables('location')]",
       "tags": {
         "displayName": "StorageAccount"
       },
-      "properties": {
-        "accountType": "[variables('vhdStorageType')]"
-      }
+      "properties": {}, 
+      "sku": { 
+        "name": "[variables('vhdStorageType')]" 
+      }, 
+      "kind": "Storage"
     },
     {
       "type": "Microsoft.Storage/storageAccounts",
       "name": "[variables('masterStorageName')]",
-      "apiVersion": "[variables('apiVersion')]",
+      "apiVersion": "2016-01-01",
       "location": "[variables('location')]",
       "tags": {
         "displayName": "StorageAccount"
       },
-      "properties": {
-        "accountType": "[variables('vhdStorageType')]"
-      }
+      "properties": {}, 
+      "sku": { 
+        "name": "[variables('vhdStorageType')]" 
+      }, 
+      "kind": "Storage"
     },
     {
       "apiVersion": "[variables('apiVersion')]",
