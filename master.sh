@@ -57,6 +57,7 @@ cat <<EOF > /home/${USERNAME}/openshift-install.sh
 export ANSIBLE_HOST_KEY_CHECKING=False
 ansible-playbook /opt/openshift-ansible/playbooks/byo/config.yml
 oadm registry --selector=region=infra
+oadm policy add-scc-to-user hostnetwork -z router
 oadm router --selector=region=infra
 sudo mv -f /etc/origin/master/htpasswd.dist /etc/origin/master/htpasswd
 EOF
