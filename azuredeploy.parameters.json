@@ -14,11 +14,35 @@
     "masterDnsName": {
       "value": ""
     },
+    "numberOfMasterNodes": {
+      "value": 1
+    },
+    "masterVMSize": {
+      "value": "Standard_DS2_v2"
+    },
+    "masterVMstorType": {
+      "value": "Premium_LRS"
+    },
     "numberOfNodes": {
       "value": 3
     },
+    "nodeVMSize": {
+      "value": "Standard_DS3_v2"
+    },
     "image": {
       "value": "centos"
-    }
+    },
+      "infranodeVMSize": {
+          "value": "Standard_DS2_v2"
+      },
+      "numberOfinfrasndes": {
+          "value": 1
+      },
+      "jumpVMSize": {
+          "value": "Standard_A1"
+      },
+      "jumpVMstorType": {
+          "value": "Standard_LRS"
+      }
   }
 }
