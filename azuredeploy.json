@@ -449,10 +449,10 @@
     "baseVMachineTemplateUriJumpBox": "[concat(variables('baseTemplateUrl'), 'jumpbox.json')]",
     "location": "[resourceGroup().location]",
     "virtualNetworkName": "openshiftVnet",
-    "addressPrefix": "10.0.0.0/16",
+    "addressPrefix": "10.41.0.0/16",
     "infranodesubnetName": "infranodeSubnet",
     "infranodeSubnetNSGName": "infraSubnetNSG",
-    "infranodesubnetPrefix": "10.0.2.0/24",
+    "infranodesubnetPrefix": "10.41.2.0/24",
     "infrapipname": "infraPip",
     "infrapipaddresstype": "Static",
     "infralbName": "infraLB",
@@ -460,12 +460,12 @@
     "infraASName": "infraAS",
     "jumpnodesubnetName": "jumpBoxSubnet",
     "jumpnodesubnetNameNSG": "jumpBoxSubnetNSG",
-    "jumpnodesubnetPrefix": "10.0.3.0/24",
+    "jumpnodesubnetPrefix": "10.41.3.0/24",
     "nodesubnetName": "nodeSubnet",
-    "nodesubnetPrefix": "10.0.1.0/24",
+    "nodesubnetPrefix": "10.41.1.0/24",
     "mastersubnetName": "masterSubnet",
     "mastersubnetNSGName": "masterSubnetNSG",
-    "mastersubnetPrefix": "10.0.0.0/24",
+    "mastersubnetPrefix": "10.41.0.0/24",
     "masterpipname": "masterPip",
     "masterppipaddresstype": "Dynamic",
     "masterlbName": "masterLB",
@@ -740,7 +740,10 @@
       "apiVersion": "2013-03-01",
       "dependsOn": [
         "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
-        "[variables('masterlbid')]"
+        "[variables('masterlbid')]",
+        "[resourceId('Microsoft.Resources/deployments', 'master0')]",
+        "[resourceId('Microsoft.Resources/deployments', 'infranode0')]",
+        "[resourceId('Microsoft.Resources/deployments', 'node0')]"
       ],
       "properties": {
         "mode": "Incremental",
@@ -775,6 +778,21 @@
           },
           "imageReference": {
             "value": "[variables(parameters('image'))]"
+          },
+          "fqdn": {
+            "value": "[reference(variables('masterpipname')).dnsSettings.fqdn]"
+          },
+          "routerExtIP": {
+            "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('infrapipname'))).ipAddress]"
+          },
+          "numberOfNodes": {
+            "value": "[parameters('numberOfNodes')]"
+          },
+          "numberOfMasterNodes": {
+            "value": "[parameters('numberOfMasterNodes')]"
+          },
+          "numberOfInfraNodes": {
+            "value": "[parameters('numberOfinfrasndes')]"
           }
         }
       }
@@ -800,11 +818,11 @@
         },
         "parameters": {
           "vmName": {
-            "value": "[concat('master', copyIndex())]"
-          },
+            "value": "[concat('master', add(copyindex(), 1))]"
+          },/*
           "fqdn": {
             "value": "[reference(variables('masterpipname')).dnsSettings.fqdn]"
-          },
+          },*/
           "subnetRef": {
             "value": "[variables('masterSubnetRef')]"
           },
@@ -822,16 +840,16 @@
           },
           "sshKeyData": {
             "value": "[parameters('sshKeyData')]"
-          },
+          },/*
           "numberOfNodes": {
             "value": "[parameters('numberOfNodes')]"
-          },
+          },*/
           "baseTemplateUrl": {
             "value": "[variables('baseTemplateUrl')]"
-          },
+          },/*
           "routerExtIP": {
             "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('infrapipname'))).ipAddress]"
-          },
+          },*/
           "imageReference": {
             "value": "[variables(parameters('image'))]"
           },
@@ -841,7 +859,6 @@
           "backEndAddressPool": {
             "value": "[concat(variables('masterlbid'), '/backendAddressPools/BackendPool')]"
           }
-
         }
       }
     },
@@ -866,7 +883,7 @@
         },
         "parameters": {
           "vmName": {
-            "value": "[concat('infranode', copyIndex())]"
+            "value": "[concat('infranode', add(copyindex(), 1))]"
           },
           "vhdStorageType": {
             "value": "[parameters('infranodeVMstorType')]"
@@ -1134,7 +1151,8 @@
       }
     }
   ],
-  "outputs": {
+  "outputs": { 
+    /*
     "Openshift Webconsole": {
       "type": "string",
       "value": "[concat('https://', reference(resourceId('Microsoft.Network/publicIPAddresses', variables('masterpipname'))).ipAddress, ':8443')]"
@@ -1148,6 +1166,7 @@
       "type": "string",
       "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('infrapipname'))).ipAddress]"
     }
+    */
   }
 }
 

@@ -3,46 +3,46 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "adminUsername": {
-      "value": ""
+      "value": "simon"
     },
     "adminPassword": {
-      "value": ""
+      "value": "#Start12345!"
     },
     "sshKeyData": {
-      "value": ""
+      "value": "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAvohyBbcQsvTs7ARWAyvIkOFxtWF24cWJiqekT6x0nbznosLekSowfmgAqZXsOVUPjchVqs8H+C7fVc1yRjwRfA5FEsm/OkGQjyUSAreTdeOyvWubSKVuaxzPI5mJAoPIUxth0MHeMNDUzmU0g6uJV5jbf1Zb12/hd4PbWyq+/CDu/KEbXPre6YQUiNF2jMRuf397fJgvCFdZqB9bMoe1ejGO2Lr/D6wVTYVSNVeLrQbkcBLz46bZfIB7VDL01WbAVlJfWw01YX87V9nZyWKdv5jO9RT+aLwMuXWlodSu2OiWoviFjspiIovA2dY9xRKxQ4UEfssvmoGa9HdsBDZY9Q== rsa-key-20161206"
     },
     "masterDnsName": {
-      "value": ""
+      "value": "simonsopenshift"
     },
     "numberOfMasterNodes": {
-      "value": 1
+      "value": 3
     },
     "masterVMSize": {
-      "value": "Standard_DS2_v2"
+      "value": "Standard_DS3_v2"
     },
     "masterVMstorType": {
       "value": "Premium_LRS"
     },
     "numberOfNodes": {
-      "value": 3
+      "value": 4
     },
     "nodeVMSize": {
-      "value": "Standard_DS3_v2"
+      "value": "Standard_DS13_v2"
     },
     "image": {
-      "value": "centos"
+      "value": "rhel"
     },
       "infranodeVMSize": {
-          "value": "Standard_DS2_v2"
+          "value": "Standard_DS3_v2"
       },
       "numberOfinfrasndes": {
-          "value": 1
+          "value": 2
       },
       "jumpVMSize": {
-          "value": "Standard_A1"
+          "value": "Standard_DS1_v2"
       },
       "jumpVMstorType": {
-          "value": "Standard_LRS"
+          "value": "Premium_LRS"
       }
   }
 }
