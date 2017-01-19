@@ -45,7 +45,7 @@ user@localmachine:~$ ssh -A <MasterIP>
 
 ### Putty on Windows
 
-To login on the Master please refer to the [Agent forwarding HowTo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-acs-mesos/docs/SSHKeyManagement.md#key-management-and-agent-forwarding-with-windows-pageant) for Putty using Pageant.
+To login on the Master please refer to the [Agent forwarding HowTo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-acs-dcos/docs/SSHKeyManagement.md) for Putty using Pageant.
 
 ```bash  
 [adminUsername@master ~]$ ./openshift-install.sh
