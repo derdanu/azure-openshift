@@ -56,8 +56,8 @@ htpasswd -cb /etc/origin/master/htpasswd.dist ${USERNAME} ${PASSWORD}
 cat <<EOF > /home/${USERNAME}/openshift-install.sh
 export ANSIBLE_HOST_KEY_CHECKING=False
 ansible-playbook /opt/openshift-ansible/playbooks/byo/config.yml
-oadm registry --selector=region=infra
-oadm router --selector=region=infra
+#oadm registry --selector=region=infra
+#oadm router --selector=region=infra
 sudo cp -f /etc/origin/master/htpasswd.dist /etc/origin/master/htpasswd
 EOF
 
