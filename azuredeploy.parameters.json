@@ -3,13 +3,13 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "adminUsername": {
-      "value": "simon"
+      "value": "admin"
     },
     "adminPassword": {
-      "value": "#Start12345!"
+      "value": "secretpassword"
     },
     "sshKeyData": {
-      "value": "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAvohyBbcQsvTs7ARWAyvIkOFxtWF24cWJiqekT6x0nbznosLekSowfmgAqZXsOVUPjchVqs8H+C7fVc1yRjwRfA5FEsm/OkGQjyUSAreTdeOyvWubSKVuaxzPI5mJAoPIUxth0MHeMNDUzmU0g6uJV5jbf1Zb12/hd4PbWyq+/CDu/KEbXPre6YQUiNF2jMRuf397fJgvCFdZqB9bMoe1ejGO2Lr/D6wVTYVSNVeLrQbkcBLz46bZfIB7VDL01WbAVlJfWw01YX87V9nZyWKdv5jO9RT+aLwMuXWlodSu2OiWoviFjspiIovA2dY9xRKxQ4UEfssvmoGa9HdsBDZY9Q== rsa-key-20161206"
+      "value": "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAvohyBbcQsvTs7ARWZyvIkOFxtWF24cWJiqekT6x0nbznosLekSowfmgAqZXsOVUPjchVqs8H+C7fVc1yRjwRfA5FEsm/OkGQjyUSAreTdeOyvWubSKVuaxzPI5mJAoPIUxth0MHeMNDUzmU0g6uJV5jbf1Zb12/hd4PbWyq+/CDu/KEbXPre6YQUiNF2jMRuf397fJgvCFdZqB9bMoe1ejGO2Lr/D6wVTYVSNVeLrQbkcBLz46bZfIB7VDL01WbAVlJfWw01YX87V9nZyWKdv5jO9RT+aLwMuXWlodSu2OiWoviFjspiIovA2dY9xRKxQ4UEfssvmoGa9HdsBDZY9Q== rsa-key-20161206"
     },
     "masterDnsName": {
       "value": "simonsopenshift2"
