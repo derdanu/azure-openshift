@@ -193,8 +193,8 @@
         "type": "CustomScriptForLinux",
         "typeHandlerVersion": "1.3",
         "settings": {
-        "fileUris": [ "[concat(parameters('baseTemplateUrl'), 'jumpbox.sh')]" ],
-        "commandToExecute": "[ concat('sh jumpbox.sh ', parameters('adminUsername'), ' ', parameters('adminPassword'), ' ', parameters('fqdn'), ' ', padLeft(parameters('numberOfNodes'), 2, '0'), ' ', parameters('routerExtIP'), ' ', parameters('numberOfMasterNodes'), ' ', parameters('numberOfInfraNodes') ) ]"
+          "fileUris": [ "[concat(parameters('baseTemplateUrl'), 'jumpbox.sh')]" ],
+          "commandToExecute": "[ concat('sh jumpbox.sh ', parameters('adminUsername'), ' ', parameters('adminPassword'), ' ', parameters('fqdn'), ' ', padLeft(parameters('numberOfNodes'), 2, '0'), ' ', parameters('routerExtIP'), ' ', parameters('numberOfMasterNodes'), ' ', parameters('numberOfInfraNodes') ) ]"
         }
       }
     }

@@ -46,23 +46,18 @@
       "metadata": {
         "description": "resourceId of the master loadbalancer backendpool this machine will be joined to"
       }
-    },
-      "dfdsfName": {
-          "type": "string",
-          "minLength": 1
-      }
+    }
   },
   "variables": {
     "apiVersion": "2015-06-15",
     "sshKeyPath": "[concat('/home/',parameters('adminUsername'),'/.ssh/authorized_keys')]",
-    "storageAccountName": "[concat(parameters('vmName'), uniqueString(resourceGroup().id))]",
+    "storageAccountName": "[concat(parameters('vmName'), uniqueString(resourceGroup().id))]" /*,
       "ffdasdPrefix": "10.0.0.0/16",
       "ffdasdSubnet1Name": "Subnet-1",
       "ffdasdSubnet1Prefix": "10.0.0.0/24",
       "ffdasdSubnet2Name": "Subnet-2",
-      "ffdasdSubnet2Prefix": "10.0.1.0/24",
-      "dfdsfVnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'ffdasd')]",
-      "dfdsfSubnetRef": "[concat(variables('dfdsfVnetID'), '/subnets/', variables('ffdasdSubnet1Name'))]"
+      "ffdasdSubnet2Prefix": "10.0.1.0/24"
+      */
   },
   "resources": [
     {
@@ -192,63 +187,7 @@
           "commandToExecute": "[ concat('sh master.sh ', parameters('adminUsername'), ' ', parameters('adminPassword') ) ]"
         }
       }
-    },
-      {
-          "name": "ffdasd",
-          "type": "Microsoft.Network/virtualNetworks",
-          "location": "[resourceGroup().location]",
-          "apiVersion": "2015-06-15",
-          "dependsOn": [ ],
-          "tags": {
-              "displayName": "ffdasd"
-          },
-          "properties": {
-              "addressSpace": {
-                  "addressPrefixes": [
-                      "[variables('ffdasdPrefix')]"
-                  ]
-              },
-              "subnets": [
-                  {
-                      "name": "[variables('ffdasdSubnet1Name')]",
-                      "properties": {
-                          "addressPrefix": "[variables('ffdasdSubnet1Prefix')]"
-                      }
-                  },
-                  {
-                      "name": "[variables('ffdasdSubnet2Name')]",
-                      "properties": {
-                          "addressPrefix": "[variables('ffdasdSubnet2Prefix')]"
-                      }
-                  }
-              ]
-          }
-      },
-      {
-          "name": "[parameters('dfdsfName')]",
-          "type": "Microsoft.Network/networkInterfaces",
-          "location": "[resourceGroup().location]",
-          "apiVersion": "2015-06-15",
-          "dependsOn": [
-              "[resourceId('Microsoft.Network/virtualNetworks', 'ffdasd')]"
-          ],
-          "tags": {
-              "displayName": "dfdsf"
-          },
-          "properties": {
-              "ipConfigurations": [
-                  {
-                      "name": "ipconfig1",
-                      "properties": {
-                          "privateIPAllocationMethod": "Dynamic",
-                          "subnet": {
-                              "id": "[variables('dfdsfSubnetRef')]"
-                          }
-                      }
-                  }
-              ]
-          }
-      }
+    }
     ],
     "outputs": {
     }
