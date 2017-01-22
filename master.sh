@@ -17,6 +17,7 @@ yum -y erase ansible
 yum install -y "@Development Tools" openssl-devel python-devel
 yum -y --enablerepo=epel install python2-pip
 pip install -Iv ansible==2.2.0.0
+mkdir /etc/ansible
 ###
 
 git clone https://github.com/openshift/openshift-ansible /opt/openshift-ansible
