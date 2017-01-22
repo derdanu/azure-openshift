@@ -37,7 +37,7 @@ You must use SSH Agentforwarding. The Installation is based on [Openshift Ansibl
 ### Bash or Cygwin Terminal
 
 ```bash
-user@localmachine:~$ eval `ssh-agent`
+user@localmachine:~$ eval $(ssh-agent)
 user@localmachine:~$ ssh-add
 user@localmachine:~$ ssh -A <MasterIP>
 [adminUsername@master ~]$ ./openshift-install.sh
