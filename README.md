@@ -39,7 +39,7 @@ To start the installation call the following bash script:
 ```bash
 user@localmachine:~$ eval $(ssh-agent)
 user@localmachine:~$ ssh-add
-user@localmachine:~$ ssh -A <MasterIP>
+user@localmachine:~$ ssh -A <JumpboxIP>
 [adminUsername@jumpbox ~]$ ./openshift-install.sh
 ```
 
