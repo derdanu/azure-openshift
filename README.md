@@ -59,17 +59,19 @@ To login on the jumpbox please refer to the [Agent forwarding HowTo](https://git
 | Name| Type           | Description |
 | ------------- | ------------- | ------------- |
 | adminUsername  | String       | Username for SSH Login and Openshift Webconsole |
-|  adminPassword | SecureString | Password for the Openshift Webconsole |
+| adminPassword | SecureString | Password for the Openshift Webconsole |
 | sshKeyData     | String       | Public SSH Key for the Virtual Machines |
 | masterDnsName  | String       | DNS Prefix for the Openshift Master / Webconsole | 
-| numberOfMasterNodes  | Integer      | Number of Openshift master nodes to create (usually either 1 or 3) |
-| masterVMstorType | string | premium or standard storage |
-| numberOfNodes  | Integer      | Number of Openshift Nodes to create |
 | image | String | Operating System to use. RHEL or CentOs |
+| numberOfMasterNodes  | Integer | Number of Openshift master nodes to create (usually either 1 or 3) |
 | masterVMSize | String | The size of the master nodes |
-| numberOfinfrasndes  | Integer      | Number of Openshift intra nodes to create |
+| masterVMstorType | string | premium or standard storage |
+| numberOfinfrasndes  | Integer | Number of Openshift intra nodes to create |
 | infranodeVMSize| String | The size of the infra nodes |
+| infranodeVMstorType | string | premium or standard storage |
+| numberOfNodes  | Integer | Number of Openshift Nodes to create |
 | nodeVMSize| String | The size of each node |
+| nodeVMstorType | string | premium or standard storage |
 | jumpVMSize| String | The size of the jumpbox |
 | jumpVMstorType | string | premium or standard storage |
 
