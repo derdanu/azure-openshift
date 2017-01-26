@@ -917,7 +917,7 @@
               "enableFloatingIP": false,
               "idleTimeoutInMinutes": 4,
               "protocol": "Tcp",
-              "loadDistribution": "Default",
+              "loadDistribution": "SourceIPProtocol",
               "backendAddressPool": {
                 "id": "[concat(variables('masterlbid'), '/backendAddressPools/BackendPool')]"
               },
