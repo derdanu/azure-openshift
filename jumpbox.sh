@@ -69,7 +69,7 @@ EOF
 cat <<EOF > /home/${USERNAME}/openshift-install.sh
 export ANSIBLE_HOST_KEY_CHECKING=False
 ansible-playbook /opt/openshift-ansible/playbooks/byo/config.yml
-for i in $(seq 1 ${MASTERCOUNT}); do ssh -q -t -o StrictHostKeyChecking=no master${i} sudo cp /etc/origin/master/htpasswd.dist /etc/origin/master/htpasswd; done;
+for i in $(seq -s " " 1 ${MASTERCOUNT}); do ssh -q -t -o StrictHostKeyChecking=no master\$i sudo cp /etc/origin/master/htpasswd.dist /etc/origin/master/htpasswd; done;
 EOF
 
 chmod 755 /home/${USERNAME}/openshift-install.sh
