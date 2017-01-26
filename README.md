@@ -58,12 +58,12 @@ To login on the jumpbox please refer to the [Agent forwarding HowTo](https://git
 
 | Name| Type           | Description |
 | ------------- | ------------- | ------------- |
-| adminUsername  | String       | Username for SSH Login and Openshift Webconsole |
+| adminUsername  | String | Username for SSH Login and Openshift Webconsole |
 | adminPassword | SecureString | Password for the Openshift Webconsole |
-| sshKeyData     | String       | Public SSH Key for the Virtual Machines |
-| masterDnsName  | String       | DNS Prefix for the Openshift Master / Webconsole | 
+| sshKeyData | String | Public SSH Key for the Virtual Machines |
+| masterDnsName  | String | DNS Prefix for the Openshift Master / Webconsole | 
 | image | String | Operating System to use. RHEL or CentOs |
-| numberOfMasterNodes  | Integer | Number of Openshift master nodes to create (usually either 1 or 3) |
+| numberOfMasterNodes | Integer | Number of Openshift master nodes to create (usually either 1 or 3) |
 | masterVMSize | String | The size of the master nodes |
 | masterVMstorType | string | premium or standard storage |
 | numberOfinfrasndes  | Integer | Number of Openshift intra nodes to create |
@@ -79,9 +79,9 @@ To login on the jumpbox please refer to the [Agent forwarding HowTo](https://git
 
 | Name| Type           | Description |
 | ------------- | ------------- | ------------- |
-| openshift Webconsole | String       | URL of the Openshift Webconsole |
+| openshift Webconsole | String | URL of the Openshift Webconsole |
 | openshift Jumpbox ssh |String | SSH String to Login at the Jumpbox |
-| openshift Router Public IP | String       | Router Public IP. Needed if you want to create your own Wildcard DNS |
+| openshift Router Public IP | String | Router Public IP. Needed if you want to create your own Wildcard DNS |
 
 ------
 
