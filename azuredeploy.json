@@ -1115,21 +1115,19 @@
     }
   ],
   "outputs": {
-    /*
     "Openshift Webconsole": {
       "type": "string",
       "value": "[concat('https://', reference(resourceId('Microsoft.Network/publicIPAddresses', variables('masterpipname'))).ipAddress, ':8443')]"
     },
-    "Openshift Master ssh": {
+    "Openshift Jumpbox ssh": {
       "type": "string",
-      "value": "[concat('ssh -A ', reference(resourceId('Microsoft.Network/publicIPAddresses', variables('masterpipname'))).ipAddress)]"
+      "value": "[concat('ssh -A ', reference(resourceId('Microsoft.Network/publicIPAddresses', variables('infrapipname'))).ipAddress)]"
     },
 
     "Openshift Router Public IP": {
       "type": "string",
       "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('infrapipname'))).ipAddress]"
     }
-    */
   }
 }
 
