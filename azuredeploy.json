@@ -462,7 +462,7 @@
     "mastersubnetNSGName": "masterSubnetNSG",
     "mastersubnetPrefix": "10.41.0.0/24",
     "masterpipname": "masterPip",
-    "masterppipaddresstype": "Dynamic",
+    "masterppipaddresstype": "Static",
     "masterlbName": "masterLB",
     "masterlbid": "[resourceId('Microsoft.Network/loadBalancers', variables('masterlbName'))]",
     "masterASName": "masterAS",
