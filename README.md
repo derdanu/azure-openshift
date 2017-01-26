@@ -21,12 +21,12 @@ When creating the RedHat Openshift Origin cluster on Azure, you will need an SSH
 ### Create the cluster with powershell
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name <DeploymentName> -ResourceGroupName <RessourceGroupName> -TemplateUri https://raw.githubusercontent.com/derdanu/azure-openshift/master/azuredeploy.json
+New-AzureRmResourceGroupDeployment -Name <DeploymentName> -ResourceGroupName <RessourceGroupName> -TemplateUri https://raw.githubusercontent.com/derdanu/azure-openshift/multi/azuredeploy.json
 ```
 
 ### Create the cluster with azure cli
 ```
-azure group deployment create <RessourceGroupName> <DeploymentName> --template-uri https://raw.githubusercontent.com/derdanu/azure-openshift/master/azuredeploy.json
+azure group deployment create <RessourceGroupName> <DeploymentName> --template-uri https://raw.githubusercontent.com/derdanu/azure-openshift/multi/azuredeploy.json
 ```
 
 ## Install Openshift Origin with Ansible
