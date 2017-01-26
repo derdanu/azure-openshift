@@ -131,7 +131,6 @@
       "defaultValue": "Premium_LRS",
       "allowedValues": [
         "Standard_LRS",
-        "Standard_ZRS",
         "Standard_GRS",
         "Standard_RAGRS",
         "Premium_LRS"
@@ -233,7 +232,6 @@
       "defaultValue": "Premium_LRS",
       "allowedValues": [
         "Standard_LRS",
-        "Standard_ZRS",
         "Standard_GRS",
         "Standard_RAGRS",
         "Premium_LRS"
@@ -336,7 +334,6 @@
       "defaultValue": "Premium_LRS",
       "allowedValues": [
         "Standard_LRS",
-        "Standard_ZRS",
         "Standard_GRS",
         "Standard_RAGRS",
         "Premium_LRS"
@@ -430,7 +427,6 @@
       "defaultValue": "Premium_LRS",
       "allowedValues": [
         "Standard_LRS",
-        "Standard_ZRS",
         "Standard_GRS",
         "Standard_RAGRS",
         "Premium_LRS"
