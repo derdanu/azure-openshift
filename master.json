@@ -51,13 +51,7 @@
   "variables": {
     "apiVersion": "2015-06-15",
     "sshKeyPath": "[concat('/home/',parameters('adminUsername'),'/.ssh/authorized_keys')]",
-    "storageAccountName": "[concat(parameters('vmName'), uniqueString(resourceGroup().id))]" /*,
-      "ffdasdPrefix": "10.0.0.0/16",
-      "ffdasdSubnet1Name": "Subnet-1",
-      "ffdasdSubnet1Prefix": "10.0.0.0/24",
-      "ffdasdSubnet2Name": "Subnet-2",
-      "ffdasdSubnet2Prefix": "10.0.1.0/24"
-      */
+    "storageAccountName": "[concat(parameters('vmName'), uniqueString(resourceGroup().id))]" 
   },
   "resources": [
     {

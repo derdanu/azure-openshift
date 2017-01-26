@@ -782,10 +782,7 @@
         "parameters": {
           "vmName": {
             "value": "[concat('master', add(copyindex(), 1))]"
-          },/*
-          "fqdn": {
-            "value": "[reference(variables('masterpipname')).dnsSettings.fqdn]"
-          },*/
+          },
           "subnetRef": {
             "value": "[variables('masterSubnetRef')]"
           },
@@ -803,16 +800,10 @@
           },
           "sshKeyData": {
             "value": "[parameters('sshKeyData')]"
-          },/*
-          "numberOfNodes": {
-            "value": "[parameters('numberOfNodes')]"
-          },*/
+          },
           "baseTemplateUrl": {
             "value": "[variables('baseTemplateUrl')]"
-          },/*
-          "routerExtIP": {
-            "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('infrapipname'))).ipAddress]"
-          },*/
+          },
           "imageReference": {
             "value": "[variables(parameters('image'))]"
           },
