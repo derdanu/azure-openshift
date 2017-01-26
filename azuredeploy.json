@@ -1064,12 +1064,7 @@
       "location": "[resourceGroup().location]",
       "properties": {
         "publicIPAllocationMethod": "[variables('infrapipaddresstype')]"
-        /*
-        "dnsSettings": {
-          "domainNameLabel": "[parameters('masterDNSName')]"
-        }
-        */
-      }
+       }
     },
     {
       "name": "[variables('masterASName')]",
