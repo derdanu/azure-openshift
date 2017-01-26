@@ -1,6 +1,6 @@
 # RedHat Openshift Origin cluster on Azure
 
-When creating the RedHat Openshift Origin cluster on Azure, you will need a SSH RSA key for access. 
+When creating the RedHat Openshift Origin cluster on Azure, you will need an SSH RSA key for access. 
 
 ## SSH Key Generation
 
@@ -11,10 +11,10 @@ When creating the RedHat Openshift Origin cluster on Azure, you will need a SSH 
 ## Create the cluster
 ### Create the cluster on the Azure Portal
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fderdanu%2Fazure-openshift%2Fmaster%2Fazuredeploy.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%derdanu%2Fazure-openshift%2Fmulti%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
-<a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fderdanu%2Fazure-openshift%2Fmaster%2Fazuredeploy.json" target="_blank">
+<a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fderdanu%2Fazure-openshift%2Fmulti%2Fazuredeploy.json" target="_blank">
     <img src="http://armviz.io/visualizebutton.png"/>
 </a>
 
@@ -31,8 +31,8 @@ azure group deployment create <RessourceGroupName> <DeploymentName> --template-u
 
 ## Install Openshift Origin with Ansible
 
-You must use SSH Agentforwarding. The Installation is based on [Openshift Ansible](https://github.com/openshift/openshift-ansible). The lastest repository has been checked out on the master into the directory */opt/openshift-ansible/* and a minimal configuration file was created at */etc/ansible/hosts* for [Openshift Origin](https://github.com/openshift/origin).
-
+After the Azure resources have been deployed by using this ARM template, you must connect via SSH to the jumbox. SSH Agentforwarding is required. The Installation is based on [Openshift Ansible](https://github.com/openshift/openshift-ansible). The lastest repository has been checked out on the jumpbox into the directory */opt/openshift-ansible/* and a minimal configuration file was created at */etc/ansible/hosts* for [Openshift Origin](https://github.com/openshift/origin).
+To start the installation call the following bash script:
 
 ### Bash or Cygwin Terminal
 
@@ -45,7 +45,7 @@ user@localmachine:~$ ssh -A <MasterIP>
 
 ### Putty on Windows
 
-To login on the Master please refer to the [Agent forwarding HowTo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-acs-dcos/docs/SSHKeyManagement.md) for Putty using Pageant.
+To login on the jumpbox please refer to the [Agent forwarding HowTo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-acs-mesos/docs/SSHKeyManagement.md#key-management-and-agent-forwarding-with-windows-pageant) for Putty using Pageant.
 
 ```bash  
 [adminUsername@master ~]$ ./openshift-install.sh
@@ -62,19 +62,16 @@ To login on the Master please refer to the [Agent forwarding HowTo](https://gith
 |  adminPassword | SecureString | Password for the Openshift Webconsole |
 | sshKeyData     | String       | Public SSH Key for the Virtual Machines |
 | masterDnsName  | String       | DNS Prefix for the Openshift Master / Webconsole | 
+| numberOfMasterNodes  | Integer      | Number of Openshift master nodes to create (usually either 1 or 3) |
+| masterVMstorType | string | premium or standard storage |
 | numberOfNodes  | Integer      | Number of Openshift Nodes to create |
 | image | String | Operating System to use. RHEL or CentOs |
-| masterVMSize | String | The size of the Master Virtual Machine |
-| infranodeVMSize| String | The size of the Infranode Virtual Machine |
-| nodeVMSize| String | The size of the each Node Virtual Machine |
-
-### Output Parameters
-
-| Name| Type           | Description |
-| ------------- | ------------- | ------------- |
-| openshift Webconsole | String       | URL of the Openshift Webconsole |
-| openshift Master ssh |String | SSH String to Login at the Master |
-| openshift Router Public IP | String       | Router Public IP. Needed if you want to create your own Wildcard DNS |
+| masterVMSize | String | The size of the master nodes |
+| numberOfinfrasndes  | Integer      | Number of Openshift intra nodes to create |
+| infranodeVMSize| String | The size of the infra nodes |
+| nodeVMSize| String | The size of each node |
+| jumpVMSize| String | The size of the jumpbox |
+| jumpVMstorType | string | premium or standard storage |
 
 ------
 

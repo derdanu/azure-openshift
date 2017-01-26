@@ -1,11 +1,8 @@
 ﻿{
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {
-      "type": "string"
-    },
-    "vhdStorageType": {
       "type": "string"
     },
     "subnetRef": {
@@ -14,8 +11,14 @@
     "vmSize": {
       "type": "string"
     },
+    "vhdStorageType": {
+      "type": "string"
+    },
     "adminUsername": {
       "type": "string"
+    },
+    "adminPassword": {
+      "type": "securestring"
     },
     "sshKeyData": {
       "type": "string",
@@ -32,17 +35,23 @@
         "description": "imageReference object that should be used to create the virtual machine"
       }
     },
-    "ASName": {
+    "fqdn": {
       "type": "string",
       "metadata": {
-        "description": "name of the availability set the infranode will be joined to"
+        "description": "fqdn or ip address of master management endpoint (web console)"
       }
     },
-    "backEndAddressPool": {
-      "type": "string",
-      "metadata": {
-        "description": "resourceId of the infra loadbalancer backendpool this machine will be joined to"
-      }
+    "numberOfNodes": {
+      "type": "int"
+    },
+    "numberOfMasterNodes": {
+      "type": "int"
+    },
+    "numberOfInfraNodes": {
+      "type": "int"
+    },
+    "routerExtIP": {
+      "type": "string"
     }
   },
   "variables": {
@@ -74,6 +83,7 @@
         "displayName": "NetworkInterface"
       },
       "dependsOn": [
+        "[resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('vmName'), 'pip'))]"
       ],
       "properties": {
         "ipConfigurations": [
@@ -84,11 +94,9 @@
               "subnet": {
                 "id": "[parameters('subnetRef')]"
               },
-              "loadBalancerBackendAddressPools": [
-                {
-                  "id": "[parameters('BackEndAddressPool')]"
-                }
-              ]
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('vmName'), 'pip'))]"
+              }
             }
           }
         ]
@@ -148,9 +156,6 @@
             }
           ]
         },
-        "availabilitySet": {
-          "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('ASName'))]"
-        },
         "networkProfile": {
           "networkInterfaces": [
             {
@@ -158,6 +163,18 @@
             }
           ]
         }
+      }
+    },
+    {
+      "apiVersion": "[variables('apiVersion')]",
+      "type": "Microsoft.Network/publicIPAddresses",
+      "name": "[concat(parameters('vmName'), 'pip')]",
+      "tags": {
+        "displayName": "PIP-Jumpbox"
+      },
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "publicIPAllocationMethod": "Dynamic"
       }
     },
     {
@@ -176,33 +193,12 @@
         "type": "CustomScriptForLinux",
         "typeHandlerVersion": "1.3",
         "settings": {
-          "fileUris": [ "[concat(parameters('baseTemplateUrl'), 'node.sh')]" ],
-          "commandToExecute": "sh node.sh"
+          "fileUris": [ "[concat(parameters('baseTemplateUrl'), 'jumpbox.sh')]" ],
+          "commandToExecute": "[ concat('sh jumpbox.sh ', parameters('adminUsername'), ' ', parameters('adminPassword'), ' ', parameters('fqdn'), ' ', padLeft(parameters('numberOfNodes'), 2, '0'), ' ', parameters('routerExtIP'), ' ', parameters('numberOfMasterNodes'), ' ', parameters('numberOfInfraNodes') ) ]"
         }
       }
     }
-
-    /*,
-    {
-      "apiVersion": "[variables('apiVersion')]",
-      "type": "Microsoft.Network/publicIPAddresses",
-      "name": "[concat(parameters('vmName'), 'pip')]",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "displayName": "PublicIPAddress"
-      },
-      "properties": {
-        "publicIPAllocationMethod": "Static"
-      }
-    }
-    */
   ],
-  "outputs": {
-    /*
-    "pip": {
-      "type": "string",
-      "value": "[reference(concat(parameters('vmName'), 'pip')).ipAddress]"
+    "outputs": {
     }
-    */
   }
-}

@@ -12,4 +12,3 @@ EOF
 
 docker-storage-setup                                                                                                                                    
 systemctl enable docker
-
