@@ -491,38 +491,6 @@
     }
   },
   "resources": [
-    /*
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('infranodeStorageName')]",
-      "apiVersion": "2016-01-01",
-      "location": "[variables('location')]",
-      "tags": {
-        "displayName": "StorageAccount"
-      },
-      "properties": {},
-      "sku": {
-        "name": "[variables('vhdStorageType')]"
-      },
-      "kind": "Storage"
-    },
-    */
-    /*
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('nodeStorageName')]",
-      "apiVersion": "2016-01-01",
-      "location": "[variables('location')]",
-      "tags": {
-        "displayName": "StorageAccount"
-      },
-      "properties": {},
-      "sku": {
-        "name": "[variables('vhdStorageType')]"
-      },
-      "kind": "Storage"
-    },
-    */
     {
       "apiVersion": "[variables('apiVersion')]",
       "type": "Microsoft.Network/virtualNetworks",
