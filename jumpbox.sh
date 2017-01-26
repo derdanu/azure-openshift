@@ -1,12 +1,11 @@
 #!/bin/bash
 
 USERNAME=$1
-PASSWORD=$2 # not needed anymore - delete in future version
-HOSTNAME=$3 #fqdn of masters (web console address)
-NODECOUNT=$4
-ROUTEREXTIP=$5 #ip address of infranodes (must to be public ip address if access from internet needed)
-MASTERCOUNT=$6
-INFRACOUNT=$7
+HOSTNAME=$2 #fqdn of masters (web console address)
+NODECOUNT=$3
+ROUTEREXTIP=$4 #ip address of infranodes (must to be public ip address if access from internet needed)
+MASTERCOUNT=$5
+INFRACOUNT=$6
 
 #yum -y update
 yum -y install wget git net-tools bind-utils iptables-services bridge-utils bash-completion httpd-tools
