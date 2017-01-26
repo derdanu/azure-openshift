@@ -1121,7 +1121,7 @@
     },
     "Openshift Jumpbox ssh": {
       "type": "string",
-      "value": "[concat('ssh -A ', reference(resourceId('Microsoft.Network/publicIPAddresses', variables('infrapipname'))).ipAddress)]"
+      "value": "[concat('ssh -A ', reference('jumpbox').outputs.pip.value)]"
     },
 
     "Openshift Router Public IP": {
