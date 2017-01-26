@@ -73,6 +73,14 @@ To login on the jumpbox please refer to the [Agent forwarding HowTo](https://git
 | jumpVMSize| String | The size of the jumpbox |
 | jumpVMstorType | string | premium or standard storage |
 
+### Output Parameters
+
+| Name| Type           | Description |
+| ------------- | ------------- | ------------- |
+| openshift Webconsole | String       | URL of the Openshift Webconsole |
+| openshift Jumpbox ssh |String | SSH String to Login at the Jumpbox |
+| openshift Router Public IP | String       | Router Public IP. Needed if you want to create your own Wildcard DNS |
+
 ------
 
 This template deploys a RedHat Openshift Origin cluster on Azure.
