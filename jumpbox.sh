@@ -1,7 +1,7 @@
 #!/bin/bash
 
 USERNAME=$1
-PASSWORD=$2 #not needed - clearnup in future version
+PASSWORD=$2 # not needed anymore - delete in future version
 HOSTNAME=$3 #fqdn of masters (web console address)
 NODECOUNT=$4
 ROUTEREXTIP=$5 #ip address of infranodes (must to be public ip address if access from internet needed)
@@ -45,7 +45,7 @@ ansible_ssh_user=${USERNAME}
 ansible_become=yes
 debug_level=2
 deployment_type=origin
-openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider', 'filename': '/etc/origin/master/htpasswd.dist'}]
+openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider', 'filename': '/etc/origin/master/htpasswd'}]
 
 openshift_master_cluster_method=native
 openshift_master_cluster_hostname=${HOSTNAME}
@@ -69,6 +69,7 @@ EOF
 cat <<EOF > /home/${USERNAME}/openshift-install.sh
 export ANSIBLE_HOST_KEY_CHECKING=False
 ansible-playbook /opt/openshift-ansible/playbooks/byo/config.yml
+for i in $(seq 1 ${MASTERCOUNT}); do ssh -q -t -o StrictHostKeyChecking=no master${i} sudo cp /etc/origin/master/htpasswd.dist /etc/origin/master/htpasswd; done;
 EOF
 
 chmod 755 /home/${USERNAME}/openshift-install.sh
