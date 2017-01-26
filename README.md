@@ -40,7 +40,7 @@ To start the installation call the following bash script:
 user@localmachine:~$ eval $(ssh-agent)
 user@localmachine:~$ ssh-add
 user@localmachine:~$ ssh -A <MasterIP>
-[adminUsername@master ~]$ ./openshift-install.sh
+[adminUsername@jumpbox ~]$ ./openshift-install.sh
 ```
 
 ### Putty on Windows
@@ -48,7 +48,7 @@ user@localmachine:~$ ssh -A <MasterIP>
 To login on the jumpbox please refer to the [Agent forwarding HowTo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-acs-mesos/docs/SSHKeyManagement.md#key-management-and-agent-forwarding-with-windows-pageant) for Putty using Pageant.
 
 ```bash  
-[adminUsername@master ~]$ ./openshift-install.sh
+[adminUsername@jumpbox ~]$ ./openshift-install.sh
 ```
 
 ------
