@@ -81,6 +81,7 @@ To login on the jumpbox please refer to the [Agent forwarding HowTo](https://git
 | ------------- | ------------- | ------------- |
 | openshift Webconsole | String | URL of the Openshift Webconsole |
 | openshift Jumpbox ssh |String | SSH String to Login at the Jumpbox |
+| openshift CLI |String | OC command String to Login |
 | openshift Router Public IP | String | Router Public IP. Needed if you want to create your own Wildcard DNS |
 
 ------

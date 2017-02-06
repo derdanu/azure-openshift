@@ -1105,6 +1105,10 @@
       "type": "string",
       "value": "[concat('ssh -A ', reference('jumpbox').outputs.pip.value)]"
     },
+    "Openshift CLI": {
+      "type": "string",
+      "value": "[concat('oc login ', reference(resourceId('Microsoft.Network/publicIPAddresses', variables('masterpipname'))).dnsSettings.fqdn, ':8443')]"
+    },
     "Openshift Router Public IP": {
       "type": "string",
       "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('infrapipname'))).ipAddress]"
