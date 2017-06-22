@@ -10,5 +10,6 @@ DEVS=/dev/sdc
 VG=docker-vg
 EOF
 
-docker-storage-setup                                                                                                                                    
+docker-storage-setup       
+systemctl enable docker-cleanup
 systemctl enable docker
