@@ -120,7 +120,6 @@
               "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob, 'openshiftvmachines/', parameters('vmName'), '.vhd')]"
             },
             "caching": "ReadWrite",
-            "diskSizeGB": "64",
             "createOption": "FromImage"
           },
           "dataDisks": [
@@ -133,7 +132,17 @@
               "vhd": {
                 "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob, 'openshiftvmachines/', parameters('vmName'), '_datadisk1.vhd')]"
               }
-            }
+            },
+           {
+              "caching": "None",
+              "createOption": "Empty",
+              "diskSizeGB": "64",
+              "lun": 1,
+              "name": "datadisk2",
+              "vhd": {
+                "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob, 'openshiftvmachines/', parameters('vmName'), '_datadisk2.vhd')]"
+              }
+            }            
           ]
         },
         "availabilitySet": {
