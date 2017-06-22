@@ -134,6 +134,7 @@
               "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob, 'openshiftvmachines/', parameters('vmName'), '.vhd')]"
             },
             "caching": "ReadWrite",
+            "diskSizeGB": "64",
             "createOption": "FromImage"
           },
           "dataDisks": [
