@@ -49,7 +49,7 @@
     },
     "masterVMSize": {
       "type": "string",
-      "defaultValue": "Standard_DS2_v2",
+      "defaultValue": "Standard_DS3_v2",
       "allowedValues": [
         "Standard_A0",
         "Standard_A1",
@@ -149,7 +149,7 @@
     },
     "infranodeVMSize": {
       "type": "string",
-      "defaultValue": "Standard_DS2_v2",
+      "defaultValue": "Standard_DS3_v2",
       "allowedValues": [
         "Standard_A0",
         "Standard_A1",
