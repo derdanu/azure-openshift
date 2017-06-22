@@ -31,8 +31,8 @@ VG=docker-vg
 EOF
 
 docker-storage-setup
+systemctl enable docker-cleanup
 systemctl enable docker
-systemctl start docker
 
 cat <<EOF > /etc/ansible/hosts
 [OSEv3:children]
@@ -67,8 +67,17 @@ EOF
 
 cat <<EOF > /home/${USERNAME}/openshift-install.sh
 export ANSIBLE_HOST_KEY_CHECKING=False
+ansible-playbook playbook.yml 
 ansible-playbook /opt/openshift-ansible/playbooks/byo/config.yml
 for i in $(seq -s " " 1 ${MASTERCOUNT}); do ssh -q -t -o StrictHostKeyChecking=no master\$i sudo cp /etc/origin/master/htpasswd.dist /etc/origin/master/htpasswd; done;
+EOF
+
+cat <<EOF > /home/${USERNAME}/playbook.yml
+- hosts: all
+  tasks:
+    - service: name=docker state=started
+      become: yes
+      become_method: sudo
 EOF
 
 chmod 755 /home/${USERNAME}/openshift-install.sh
