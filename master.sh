@@ -18,3 +18,4 @@ EOF
 docker-storage-setup  
 systemctl enable docker-cleanup
 systemctl enable docker
+systemctl start docker
