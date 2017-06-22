@@ -53,6 +53,8 @@ openshift_master_cluster_public_hostname=${HOSTNAME}
 openshift_master_default_subdomain=${ROUTEREXTIP}.xip.io
 openshift_use_dnsmasq=False
 
+openshift_disable_check=disk_availability,memory_availability
+
 [masters]
 master[1:${MASTERCOUNT}] openshift_public_hostname=${HOSTNAME}
 
